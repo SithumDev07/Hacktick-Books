@@ -11,7 +11,7 @@ app.use(express.static('public'))
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 
-const user = require('./controllers/appController')
+const user = require('./controllers/userController')
 
 app.use(
     session({
