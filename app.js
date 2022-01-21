@@ -11,6 +11,8 @@ app.use(express.static('public'))
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({ extended: true }))
 
+const user = require('./controllers/appController')
+
 app.use(
     session({
         secret: "secretValue",
@@ -20,6 +22,7 @@ app.use(
 )
 
 app.use('/', router)
+app.use('/user', user)
 
 router.get('/', async (req, res) => {
     res.redirect('/user/signin')
